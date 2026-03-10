@@ -1,0 +1,18 @@
+The Tacotron 2 model for generating mel spectrograms from text
+
+Model Description
+The Tacotron 2 and WaveGlow model form a text-to-speech system that enables user to synthesise a natural sounding speech from raw transcripts without any additional prosody information. The Tacotron 2 model produces mel spectrograms from input text using encoder-decoder architecture. WaveGlow (also available via torch.hub) is a flow-based model that consumes the mel spectrograms to generate speech.
+
+This implementation of Tacotron 2 model differs from the model described in the paper. Our implementation uses Dropout instead of Zoneout to regularize the LSTM layers.
+
+Example
+In the example below:
+
+pretrained Tacotron2 and Waveglow models are loaded from torch.hub
+Given a tensor representation of the input text ("Hello world, I missed you so much"), Tacotron2 generates a Mel spectrogram as shown on the illustration
+Waveglow generates sound given the mel spectrogram
+the output sound is saved in an 'audio.wav' file
+
+Google's Paper on Tacotron : https://arxiv.org/pdf/1712.05884.pdf
+NVIDIA GitHub: https://github.com/NVIDIA/tacotron2
+LJ Speech Dataset: https://keithito.com/LJ-Speech-Dataset/
